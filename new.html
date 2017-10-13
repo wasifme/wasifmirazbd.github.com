@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Add and Delete Row Angular js</title>
+  
+  
+  <link rel='stylesheet prefetch' href='../css/bootstrap.min.css'>
+
+  
+  
+</head>
+
+<body>
+   <div ng-app="manish_ui" class="container" style="margin: 50px;">
+        <div ng-controller="controller">
+            <div id="page_one" class="row" ng-show="div" >
+                <div class="col-md-6">
+                    Search:<input type="text" placeholder="Search by Email" ng-model="Search.email" />
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="info in detail | filter:Search">
+                                <td>{{info.name}}</td>
+                                <td>{{info.email}}</td>
+                                <td>{{info.phone}}</td>
+                                <td><button data-ng-click="delete($index)">Delete</button></td>
+                                <td><button data-ng-click="store($index)">Details</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Car Name</th>
+                                <th>Car Branch</th>
+                                <th>Car id</th>
+                                <th>Car address</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="info in details | filter:Search">
+                                <td>{{info.carname}}</td>
+                                <td>{{info.branch}}</td>
+                                <td>{{info.id}}</td>
+                                <td>{{info.caraddress}}</td>
+
+
+
+                                <td><button data-ng-click="delete($index)">Delete</button></td>
+                                <td><button data-ng-click="store($index)">Details</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <form class="form-horizontal" role="bit" ng-submit="addrow(bit)">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Name</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="name"
+                                    ng-model="name" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Email</label>
+                            <div class="col-md-4">
+                                <input type="email" class="form-control" name="email"
+                                    ng-model="email" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Phone</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="phone"
+                                    ng-model="phone" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Address</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="address"
+                                    ng-model="address" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <input type="submit" value="create" class="btn" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <form class="form-horizontal" role="form" ng-submit="addcar(form)">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Car name</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="carname"
+                                    ng-model="carname" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Branch</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="branch"
+                                    ng-model="branch" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">id</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="id"
+                                    ng-model="id" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Address</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="caraddress"
+                                    ng-model="caraddress" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <input type="submit" value="create" class="btn" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="page_tw" ng-show="!div">                
+                <h3>Info of the person {{s_name}}</h3>
+                <table class="table table-striped">
+                    <tr>
+                        <td>Email</td>
+                        <td>{{s_email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>{{s_phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>{{s_address}}</td>
+                    </tr>
+                </table>
+                <a href="#" ng-click="backto()">back to data</a>
+            </div>
+        </div>
+    </div>
+  <script src='../angular.min.js'></script>
+
+    <script src="js.js"></script>
+
+</body>
+</html>
